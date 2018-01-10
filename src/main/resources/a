@@ -1,0 +1,69 @@
+<where>
+      <if test="userName != null" >
+        and u.user_name = #{userName,jdbcType=VARCHAR}
+      </if>
+      <if test="operCode != null" >
+        and u.oper_code = #{operCode,jdbcType=VARCHAR}
+      </if>
+      <if test="password != null" >
+        and u.password = #{password,jdbcType=VARCHAR}
+      </if>
+      <if test="partyGroupId != null" >
+        and u.party_group_id = #{partyGroupId,jdbcType=CHAR}
+      </if>
+      <if test="partyGroupIds != null" >
+      		and u.party_group_id in
+          	<foreach collection="partyGroupIds" open="(" close=")" item="partyGroupIdItem" separator=",">
+	    		#{partyGroupIdItem}
+	    	</foreach>
+      </if>
+      <if test="roleIds != null" >
+      		and ur.role_id in
+          	<foreach collection="roleIds" open="(" close=")" item="roleIdItem" separator=",">
+	    		#{roleIdItem}
+	    	</foreach>
+      </if>
+      <if test="realName != null" >
+        and u.real_name = #{realName,jdbcType=VARCHAR}
+      </if>
+      <if test="mobile != null" >
+        and u.mobile = #{mobile,jdbcType=VARCHAR}
+      </if>
+      <if test="email != null" >
+        and u.email = #{email,jdbcType=VARCHAR}
+      </if>
+      <if test="status != null" >
+        and u.status = #{status,jdbcType=CHAR}
+      </if>
+      <if test="comments != null" >
+        and u.comments = #{comments,jdbcType=VARCHAR}
+      </if>
+      <if test="lastFailCount != null" >
+        and u.last_fail_count = #{lastFailCount,jdbcType=INTEGER}
+      </if>
+      <if test="lastFailDt != null" >
+        and u.last_fail_dt = #{lastFailDt,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastFailIp != null" >
+        and u.last_fail_ip = #{lastFailIp,jdbcType=VARCHAR}
+      </if>
+      <if test="lastSuccDt != null" >
+        and u.last_succ_dt = #{lastSuccDt,jdbcType=TIMESTAMP}
+      </if>
+      <if test="lastSuccIp != null" >
+        and u.last_succ_ip = #{lastSuccIp,jdbcType=VARCHAR}
+      </if>
+      <if test="lastUpdatedOperCode != null" >
+        and u.last_updated_oper_code = #{lastUpdatedOperCode,jdbcType=CHAR}
+      </if>
+      <if test="createdOperCode != null" >
+        and u.created_oper_code = #{createdOperCode,jdbcType=CHAR}
+      </if>
+      <if test="lastUpdatedStamp != null" >
+        and u.last_updated_stamp = #{lastUpdatedStamp,jdbcType=TIMESTAMP}
+      </if>
+      <if test="createdStamp != null" >
+        and u.created_stamp = #{createdStamp,jdbcType=TIMESTAMP}
+      </if>
+      and u.role_type=1
+</where>
